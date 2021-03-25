@@ -1,37 +1,161 @@
-## Welcome to GitHub Pages
+## Who is Siddharth?
 
-You can use the [editor on GitHub](https://github.com/siddharth-paneri/siddharth-paneri.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+With 9 years of industry experience in native iOS development, I enjoy all the aspects of development and have strong skills in design, architecture, UX standards, and DevOps for Mobile. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I am equally at ease with the team dynamics and work culture of start-ups as well as enterprises and am well-versed with Agile ways of working and able to coach teams to be more efficient.
 
-### Markdown
+I stay on top of coding standards, automation testing, security issues, code complexity & vulnerabilities as they highly control the quality of our final product. 
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+I strongly believe in the idea of Q-OTIF (quality-on-time-in-full) which has been instrumental in the big successes of the various products I worked with.
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
+### Too much to read? - Enjoy the output below
 
-- Bulleted
-- List
+```
+You get --- 
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+• iOS App.
+• iPad App.
+• watchOS App.
+• macOS App.
+• Jenkins CI/CD setup
+• Automated build-test-release cycle
+• Ensure quality and timely delivery
+• Digital transformation
+• Understanding gaps, SWOT and RISK
+• Coach your teams to deliver quality on time in full.
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Wondoring how you got this output, try runing it in your machine :) 
 
-### Jekyll Themes
+```swift
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/siddharth-paneri/siddharth-paneri.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+/// Technologies that Sid can work on, independently or in a team.
+enum Technology {
+    case iOS
+    case iPad
+    case watchOS // exploring
+    case macOS // exploring
+    case tvOS // exploring
+}
 
-### Support or Contact
+/// Final product types that you get when you invest in Sid.
+enum FinalProductType {
+    case all // all of the below
+    case iOSApp // native
+    case iPadApp // native
+    case watchOSApp// natiive
+    case macOSApp // native
+    case tvOSApp // native, no experience
+    case consulting // help you with something
+    case devopsMobile // help you with your CI/CD for mobile
+    
+    var value: String {
+        let grow = """
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+                • Digital transformation
+                • Understanding gaps, SWOT and RISK
+                • Coach your teams to deliver quality on time in full.
+                """
+        let iOS = """
+
+                • iOS App.
+                """
+        let iPad = """
+
+                • iPad App.
+                """
+        let watchOS = """
+
+                • watchOS App.
+                """
+        let macOS = """
+
+                • macOS App.
+                """
+        let devops = """
+
+                • Jenkins CI/CD setup
+                • Automated build-test-release cycle
+                • Ensure quality and timely delivery
+                """
+        switch self {
+        case .all:
+            return iOS + iPad + watchOS + macOS + devops + grow
+        case .iOSApp:
+            return iOS
+        case .iPadApp:
+            return iPad
+        case .watchOSApp:
+            return watchOS
+        case .macOSApp:
+            return macOS
+        case .tvOSApp:
+            return "I can work on tvOS, but not an expert."
+        case .devopsMobile:
+            return devops
+        case .consulting:
+            return grow
+        }
+    }
+}
+
+/// The concrete Final product containing the deliverables, your return on investment
+struct FinalProduct {
+    let deliverables: [FinalProductType]
+    init(_ deliverables: [FinalProductType]) {
+        self.deliverables = deliverables
+    }
+    func receive() {
+        print("You get --- ")
+        deliverables.forEach { print("\($0.value)")}
+    }
+}
+
+/// Contract that an Engineer must follow, to be an engineer ;)
+protocol Engineer {
+    var technologies: [Technology] {get set}
+    
+    init(_ technologies: [Technology])
+    func  buildSomething() -> FinalProduct
+}
+extension Engineer {
+    func buildSomething() -> FinalProduct{
+        print("I promise I can build you something")
+        return FinalProduct([.all])
+    }
+}
+/// Mobile engineer, follows Engineer contract/rules
+struct MobileEngineer: Engineer {
+    var technologies: [Technology]
+    var skills = [String]()
+    
+    init(_ technologies: [Technology]) {
+        precondition(technologies.count > 0, "Dev with no tech! Who aaare yoou?")
+        self.technologies = technologies
+    }
+}
+
+extension MobileEngineer {
+    func buildSomething() -> FinalProduct {
+        return FinalProduct([.all])
+    }
+    func build_iOSApp() -> FinalProduct {
+        return FinalProduct([.iOSApp])
+    }
+    func build_iPadApp() -> FinalProduct {
+        return FinalProduct([.iPadApp])
+    }
+    func build_watchOSApp() -> FinalProduct {
+        return FinalProduct([.watchOSApp])
+    }
+    func build_macOSApp() -> FinalProduct {
+        return FinalProduct([.macOSApp])
+    }}
+
+var sid = MobileEngineer([.iOS, .iPad, .watchOS, .macOS])
+
+let product = sid.buildSomething()
+product.receive()
+
+```
