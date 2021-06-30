@@ -1,6 +1,7 @@
 ## Who is Siddharth?
+[View On Github](http://github.com/siddharth-paneri)
 
-With 9 years of industry experience in native iOS development, I enjoy all the aspects of development and have strong skills in design, architecture, UX standards, and DevOps for Mobile. 
+With more than 9 years of industry experience in native iOS development, I enjoy all the aspects of development and have strong skills in design, architecture, UX standards, and DevOps for Mobile. 
 
 I am equally at ease with the team dynamics and work culture of start-ups as well as enterprises and am well-versed with Agile ways of working and able to coach teams to be more efficient.
 
